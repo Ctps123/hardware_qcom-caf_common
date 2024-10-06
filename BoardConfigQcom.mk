@@ -169,8 +169,7 @@ else ifneq ($(filter $(UM_4_14_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 else ifneq ($(filter $(UM_4_19_KONA_FAMILY),$(TARGET_BOARD_PLATFORM)),)
     MSM_VIDC_TARGET_LIST := $(UM_4_19_KONA_FAMILY)
     QCOM_HARDWARE_VARIANT := sm8250
-else ifneq ($(filter $(UM_4_19_BENGAL_FAMILY) $(UM_5_15_BENGAL_FAMILY),$(TARGET_BOARD_PLATFORM)),)
-ifeq ($(TARGET_BOARD_PLATFORM)$(TARGET_BOARD_SUFFIX),bengal_515)
+else ifeq ($(call is-board-platform-in-list, $(UM_5_15_BENGAL_FAMILY)),true)
     QCOM_HARDWARE_VARIANT := sm6225
 else
     MSM_VIDC_TARGET_LIST := $(UM_4_19_BENGAL_FAMILY)
